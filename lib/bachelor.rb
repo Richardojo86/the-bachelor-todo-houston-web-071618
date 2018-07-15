@@ -1,4 +1,5 @@
 def get_first_name_of_season_winner(data, season)
+<<<<<<< HEAD
   season_data = data[season].first
   season_data["name"].split(" ").first
 end
@@ -22,6 +23,24 @@ def count_contestants_by_hometown(data, hometown)
     end
   end
   result
+=======
+  hash = data[season].detect { |hash| hash['status'] == "Winner" }
+  hash['name'].split.first
+end
+
+def get_contestant_name(data, occupation)
+  person_list = {}
+  data.detect do |_, value|
+    person_list = value
+    value.any? { |hash| hash['occupation'] == occupation }
+  end
+  person = person_list.detect { |person| person['occupation'] == occupation }
+  person['name']
+end
+
+def count_contestants_by_hometown(data, hometown)
+  
+>>>>>>> 8987267447c48ff54790258fa820a4fd6b214eb9
 end
 
 def get_occupation(data, hometown)
